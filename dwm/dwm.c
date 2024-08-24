@@ -2237,7 +2237,7 @@ char *get_dwm_path(){
  * https://sites.google.com/site/yjlnotes/notes/dwm
  */
 void self_restart(const Arg *arg) {
-    char *const argv[] = {get_dwm_path(), NULL};
+    char *const argv[] = {"/usr/local/bin/dwm", NULL};
 
     if(argv[0] == NULL){
         return;
