@@ -29,7 +29,7 @@ static const Rule rules[] = {
 	 */
 	/* class          instance    title       tags mask     isfloating   monitor */
 	{ "Gimp",         NULL,       NULL,       0,            1,           -1 },
-	{ "firefox-esr",  NULL,       NULL,       1 << 2,       0,           -1 },
+	{ "firefox-esr",  NULL,       NULL,       1 << 1,       0,           -1 },
 };
 
 /* layout(s) */
