@@ -3,4 +3,8 @@ My dwm and dmenu config on my Thinkpad X230
 
 ## Requirements
 - FireCode Nerd Font
-- NodeJS [sorry for that]
+- xsetroot
+- playerctl
+- wireplumber
+- pipewire-pulse
+- NodeJS [sorry for that, will rewrite to zig xD]
