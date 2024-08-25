@@ -1,4 +1,5 @@
 /* See LICENSE file for copyright and license details. */
+#include <X11/XF86keysym.h>
 
 /* appearance */
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
@@ -62,6 +63,9 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, "-l", dmenulines, "-i", NULL };
 static const char *termcmd[]  = { "alacritty", NULL };
 static const char *firefoxcmd[] = { "firefox", NULL };
+static const char scrot_selection_cmd[] = "scrot -s -f -F - | xclip -selection clipboard -t image/png";
+static const char scrot_full_cmd[] = "scrot -F - | xclip -selection clipboard -t image/png";
+static const char scrot_focused_cmd[] = "scrot -u -F - | xclip -selection clipboard -t image/png";
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -69,6 +73,15 @@ static const Key keys[] = {
 	{ MODKEY,	                      XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,			                  XK_w,	     spawn,	         {.v = firefoxcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
+  { MODKEY|ShiftMask,             XK_s,      spawn,          SHCMD(scrot_selection_cmd) },
+  { 0,                            XK_Print,  spawn,          SHCMD(scrot_full_cmd) },
+  { Mod1Mask,                     XK_Print,  spawn,          SHCMD(scrot_focused_cmd) },
+  { 0,                            XF86XK_AudioMute,         spawn,   SHCMD("pactl set-sink-mute 0 toggle") },
+  { 0,                            XF86XK_AudioRaiseVolume,  spawn,   SHCMD("pactl set-sink-volume 0 +2%") },
+  { 0,                            XF86XK_AudioLowerVolume,  spawn,   SHCMD("pactl set-sink-volume 0 -2%") },
+  { 0,                            XF86XK_AudioPlay,         spawn,   SHCMD("playerctl play-pause") },
+  { 0,                            XF86XK_AudioNext,         spawn,   SHCMD("playerctl next") },
+  { 0,                            XF86XK_AudioPrev,         spawn,   SHCMD("playerctl prev") },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_i,      incnmaster,     {.i = +1 } },
