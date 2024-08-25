@@ -81,7 +81,7 @@ static const Key keys[] = {
   { 0,                            XF86XK_AudioLowerVolume,  spawn,   SHCMD("wpctl set-volume -l 1.5  @DEFAULT_AUDIO_SINK@ 2%-") },
   { 0,                            XF86XK_AudioPlay,         spawn,   SHCMD("playerctl play-pause") },
   { 0,                            XF86XK_AudioNext,         spawn,   SHCMD("playerctl next") },
-  { 0,                            XF86XK_AudioPrev,         spawn,   SHCMD("playerctl prev") },
+  { 0,                            XF86XK_AudioPrev,         spawn,   SHCMD("playerctl previous") },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_i,      incnmaster,     {.i = +1 } },
