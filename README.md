@@ -6,5 +6,4 @@ My dwm and dmenu config on my Thinkpad X230
 - xsetroot
 - playerctl
 - wireplumber
-- pipewire-pulse
 - NodeJS [sorry for that, will rewrite to zig xD]
